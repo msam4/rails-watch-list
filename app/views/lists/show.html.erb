@@ -3,13 +3,22 @@
 <p><%= link_to "Create a bookmark", new_list_bookmark_path(@list) %></p>
 <p><%= link_to "Return to lists page", lists_path %></p>
 
-<div>
+<div class="list-group">
   <% @list.bookmarks.each do |bookmark| %>
-    <h4><%= bookmark.movie.title %></h4>
-    <p><%= bookmark.comment %></p>
-    <%= link_to "Delete",
-        bookmark_path(bookmark),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-    %>
+  <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+    <img src="<%= bookmark.movie.poster_url %>" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+    <div class="d-flex gap-2 w-100 justify-content-between">
+      <div>
+        <h6 class="mb-0"><%= bookmark.movie.title %></h6>
+        <p class="mb-0 opacity-75"><%= bookmark.comment %></p>
+      </div>
+      <small class="opacity-50 text-nowrap">
+        <%= link_to "Delete",
+          bookmark_path(bookmark),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+        %>
+      </small>
+    </div>
+  </a>
   <% end %>
 </div>
