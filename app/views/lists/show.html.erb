@@ -1,4 +1,5 @@
 <h1><%= @list.name %></h1>
+<%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
 
 <p><%= link_to "Create a bookmark", new_list_bookmark_path(@list) %></p>
 <p><%= link_to "Return to lists page", lists_path %></p>
@@ -22,3 +23,16 @@
   </a>
   <% end %>
 </div>
+
+<main>
+  <div class="container py-4">
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold"><%= @list.name %></h1>
+        <p class="col-md-8 fs-4">All the movies in your pocket. Ready to be judge.</p>
+        <button class="btn btn-outline-primary" type="button"><%= link_to "Create a bookmark", new_list_bookmark_path(@list) %></button>
+        <button class="btn btn-secondary" type="button"><%= link_to "Return to lists page", lists_path %></button>
+      </div>
+    </div>
+  </div>
+</main>
