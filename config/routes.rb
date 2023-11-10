@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-
+  root to: "lists#index"
   # As a user, I can see all my movie lists
   # As a user, I can create a movie list
   # As a user, I can see the details of a movie list
